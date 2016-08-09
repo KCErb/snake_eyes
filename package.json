@@ -1,0 +1,31 @@
+{
+  "name": "snake-eyes",
+  "version": "1.0.0",
+  "description": "A little tiny bot for helping us pick the speaker during scrum.",
+  "main": "snake_eyes.js",
+  "scripts": {
+    "start": "node snake_eyes.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KCErb/snake_eyes.git"
+  },
+  "keywords": [
+    "slackbot",
+    "bot",
+    "slack",
+    "snake",
+    "eyes",
+    "scrum"
+  ],
+  "author": "KC Erb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KCErb/snake_eyes/issues"
+  },
+  "homepage": "https://github.com/KCErb/snake_eyes#readme",
+  "dependencies": {
+    "beepboop-botkit": "^1.4.1",
+    "botkit": "~0.2.2"
+  }
+}
