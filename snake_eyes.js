@@ -13,7 +13,7 @@ controller.spawn({
 // give the bot something to listen for.
 controller.hears('throw the dice',['direct_message','direct_mention','mention'],function(bot,message) {
 
-  var names = ["Addison", "Christian", "Chris", "Jarom", "Josh", "KC", "Keshav", "Will"];
+  var names = ["Addison", "Christian", "Chris", "Jarom", "Josh", "Keshav", "Will"];
   shuffle(names);
   bot.reply(message,names.join('\n'));
 
