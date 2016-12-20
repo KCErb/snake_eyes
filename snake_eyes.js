@@ -12,7 +12,8 @@ controller.spawn({
 
 // give the bot something to listen for.
 controller.on('mention',function(bot,message) {
-  var namesToDrop = message.split(' -');
+  console.log(message);
+  var namesToDrop = message.text.split(' -');
   var allNames = ["Addison", "Christian", "Chris", "Jarom", "Josh", "KC", "Keshav", "Will"];
   names = allNames.diff(namesToDrop);
   shuffle(names);
