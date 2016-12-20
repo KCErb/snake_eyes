@@ -11,12 +11,12 @@ controller.spawn({
 }).startRTM()
 
 // give the bot something to listen for.
-controller.hears('throw the dice',['direct_message','direct_mention','mention'],function(bot,message) {
-
-  var names = ["Addison", "Christian", "Chris", "Jarom", "Josh", "KC", "Keshav", "Will"];
+controller.on('mention',function(bot,message) {
+  var namesToDrop = message.split(' -');
+  var allNames = ["Addison", "Christian", "Chris", "Jarom", "Josh", "KC", "Keshav", "Will"];
+  names = allNames.diff(namesToDrop);
   shuffle(names);
   bot.reply(message,names.join('\n'));
-
 });
 
 // Fisher–Yates shuffle - thanks stack overflow
@@ -40,3 +40,14 @@ function shuffle(array) {
 
   return array;
 }
+
+// Array diff - thanks stack overflow
+// http://stackoverflow.com/a/4026828/3221576
+// case insensitive indexOf - thanks stack overflow
+// http://stackoverflow.com/a/40195757/3221576
+Array.prototype.diff = function(a) {
+    return this.filter(function(i) {
+      indexOf = a.findIndex(item => i.toLowerCase() === item.toLowerCase());
+      return indexOf < 0;
+    });
+};
