@@ -12,10 +12,14 @@ controller.spawn({
 
 // give the bot something to listen for.
 controller.on(['direct_message','direct_mention','mention'], function(bot, message) {
-  console.log(message);
+  // parse out names to drop with a squishy split, its so squishy that many
+  // elements of the array are undefined or "" so we clean those out with a filter
   var namesToDrop = message.text.split(/(\s)?-(\s)?/);
+  namesToDrop = namesToDrop.filter(function(e){return e});
+  // Now compare to list of all names and drop the matches
   var allNames = ["Addison", "Christian", "Chris", "Jarom", "Josh", "KC", "Keshav", "Will"];
   names = allNames.diff(namesToDrop);
+  // lastly shuffle and reply
   shuffle(names);
   bot.reply(message,names.join('\n'));
 });
