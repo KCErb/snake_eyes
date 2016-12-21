@@ -13,7 +13,7 @@ controller.spawn({
 // give the bot something to listen for.
 controller.on(['direct_message','direct_mention','mention'], function(bot, message) {
   console.log(message);
-  var namesToDrop = message.text.split(' -');
+  var namesToDrop = message.text.split(/(\s)?-(\s)?/);
   var allNames = ["Addison", "Christian", "Chris", "Jarom", "Josh", "KC", "Keshav", "Will"];
   names = allNames.diff(namesToDrop);
   shuffle(names);
