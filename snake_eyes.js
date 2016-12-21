@@ -11,7 +11,7 @@ controller.spawn({
 }).startRTM()
 
 // give the bot something to listen for.
-controller.on('mention',function(bot,message) {
+controller.on(['direct_message','direct_mention','mention'], function(bot, message) {
   console.log(message);
   var namesToDrop = message.text.split(' -');
   var allNames = ["Addison", "Christian", "Chris", "Jarom", "Josh", "KC", "Keshav", "Will"];
